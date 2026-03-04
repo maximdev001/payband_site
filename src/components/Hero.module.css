@@ -1,0 +1,278 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Background glows */
+.glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse at center, rgba(176, 38, 255, 0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.glowTeal {
+  position: absolute;
+  bottom: 5%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(0, 201, 177, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Content layout */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  width: 100%;
+}
+
+/* Text side */
+.text {
+  flex: 1;
+  max-width: 580px;
+}
+
+.heading {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #b026ff 0%, #7b2fff 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tealText {
+  background: linear-gradient(90deg, #7b2fff 0%, #00c9b1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subheading {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* CTA Button */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--gradient-button);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 1.75rem;
+  border-radius: 50px;
+  transition: opacity 0.2s, transform 0.2s;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(176, 38, 255, 0.3);
+}
+
+.ctaBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(176, 38, 255, 0.45);
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+}
+
+/* Right visual */
+.visual {
+  flex-shrink: 0;
+  position: relative;
+  width: 320px;
+}
+
+.phoneGlow {
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(ellipse at center, rgba(176, 38, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.phoneCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 60px rgba(176, 38, 255, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.phoneScreen {
+  padding: 2rem 1.75rem 2.5rem;
+}
+
+.phoneNotch {
+  width: 60px;
+  height: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+  margin: 0 auto 2rem;
+}
+
+.phoneContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.phoneBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-teal);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.phoneBadgeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.phoneAmount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+}
+
+.phoneLabel {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  margin-top: -0.4rem;
+}
+
+.phoneBar {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.phoneBarFill {
+  height: 100%;
+  width: 72%;
+  background: var(--gradient-button);
+  border-radius: 3px;
+}
+
+.phoneMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+  margin-top: 0.25rem;
+}
+
+.phoneTeal {
+  color: var(--color-teal);
+  font-weight: 600;
+}
+
+/* Scroll hint */
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollDot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  animation: scrollBounce 1.6s infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.4; }
+}
+
+.br {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    padding-top: 8rem;
+  }
+  .visual {
+    width: 100%;
+    max-width: 340px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 2.4rem;
+  }
+  .br {
+    display: block;
+  }
+}
+
+/* RTL overrides */
+[dir='rtl'] .heading,
+[dir='rtl'] .subheading {
+  text-align: start;
+}
+
+[dir='rtl'] .ctaBtn {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .phoneMeta {
+  flex-direction: row-reverse;
+}

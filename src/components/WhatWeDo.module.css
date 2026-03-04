@@ -1,0 +1,146 @@
+.section {
+  padding: 7rem 0;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  right: -5%;
+  top: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(176, 38, 255, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* Sector pills */
+.sectors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.sectorPill {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  background: rgba(0, 201, 177, 0.08);
+  border: 1px solid rgba(0, 201, 177, 0.2);
+  border-radius: 50px;
+  padding: 0.45rem 1.1rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.sectorPill:hover {
+  background: rgba(0, 201, 177, 0.15);
+  border-color: rgba(0, 201, 177, 0.4);
+}
+
+/* Visual card */
+.visual {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.visualCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-card-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.dashRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dashItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.dashIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Graph */
+.dashGraph {
+  position: relative;
+  height: 120px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.graphLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(176,38,255,0.3), rgba(0,201,177,0.3), transparent);
+}
+
+.graphBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 80px;
+}
+
+.graphBar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, rgba(176,38,255,0.6), rgba(0,201,177,0.4));
+  transition: height 0.4s ease;
+}
+
+@media (max-width: 700px) {
+  .dashRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section {
+    padding: 5rem 0;
+  }
+}

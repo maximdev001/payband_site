@@ -1,0 +1,63 @@
+import styles from './Hero.module.css';
+import { useLang } from '../i18n/LangContext';
+
+export default function Hero() {
+  const { t } = useLang();
+  const h = t.hero;
+
+  return (
+    <section className={styles.hero} id="hero">
+      <div className={styles.glow} />
+      <div className={styles.glowTeal} />
+
+      <div className={`container ${styles.content}`}>
+        <div className={styles.text}>
+          <h1 className={styles.heading}>
+            <span className={styles.gradientText}>{h.heading1}</span>
+            <br />
+            <span className={styles.tealText}>{h.heading2}</span>
+          </h1>
+          <p className={styles.subheading}>{h.sub}</p>
+          <a href="#solutions" className={styles.ctaBtn}>
+            {h.cta}
+            <span className={styles.ctaArrow}>
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="10" fill="rgba(255,255,255,0.15)"/>
+                <path d="M8 11h6M11 8l3 3-3 3" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {/* Decorative card visual */}
+        <div className={styles.visual}>
+          <div className={styles.phoneGlow} />
+          <div className={styles.phoneCard}>
+            <div className={styles.phoneScreen}>
+              <div className={styles.phoneNotch} />
+              <div className={styles.phoneContent}>
+                <div className={styles.phoneBadge}>
+                  <span className={styles.phoneBadgeDot} />
+                  {h.badgeLive}
+                </div>
+                <p className={styles.phoneAmount}>$24,850</p>
+                <p className={styles.phoneLabel}>{h.balanceLabel}</p>
+                <div className={styles.phoneBar}>
+                  <div className={styles.phoneBarFill} />
+                </div>
+                <div className={styles.phoneMeta}>
+                  <span>{h.transactions}</span>
+                  <span className={styles.phoneTeal}>+12.4%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.scrollHint}>
+        <span className={styles.scrollDot} />
+      </div>
+    </section>
+  );
+}

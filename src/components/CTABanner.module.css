@@ -1,0 +1,110 @@
+.section {
+  padding: 6rem 0;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  left: 10%;
+  top: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(176, 38, 255, 0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.glowTeal {
+  position: absolute;
+  right: 10%;
+  bottom: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(0, 201, 177, 0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.decoration {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decorRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(176, 38, 255, 0.2);
+  animation: rotate 12s linear infinite;
+}
+
+.decorRing2 {
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 201, 177, 0.15);
+  animation: rotate 8s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.handIcon {
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  max-width: 500px;
+  line-height: 1.2;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gradient-button);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 0 30px rgba(176, 38, 255, 0.35);
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 4rem 0;
+  }
+}
