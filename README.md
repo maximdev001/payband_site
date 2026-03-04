@@ -29,17 +29,33 @@ build command and serve the resulting static assets.
 
 ## Environment Variables
 
-Local environment variables can be defined in a `.env` file this repository ignores. For
-Render.com, set any necessary variables via the dashboard or `render.yaml` configuration.
+Local environment variables can be defined in a `.env` file; this repository ignores those
+files. GitHub Pages does not support server‑side environment variables, so keep any
+configuration hard‑coded or handled at build time.
 
-## Deployment (Render.com)
+## Deployment (GitHub Pages)
 
-1. Connect your GitHub repository to Render and create a new static site.
-2. Set the build command to `npm run build` and the publish directory to `dist/`.
-3. Optionally specify any environment variables required by the application.
+1. Push your code to a GitHub repository (private or public).
+2. Ensure the `homepage` field in `package.json` is set to the GitHub Pages URL, for
+   example:
+   ```json
+   "homepage": "https://<your-username>.github.io/<repo-name>/"
+   ```
+3. Install the `gh-pages` package if not already present:
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+4. Add the following scripts to `package.json`:
+   ```json
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+5. Run `npm run deploy` to publish the `dist/` folder to the `gh-pages` branch. GitHub
+   Pages will automatically serve the site from there.
 
-No additional configuration is required; the existing `package.json` scripts are already
-compatible with Render's defaults.
+No further server configuration is required; GitHub Pages will serve the static build.
 
 ---
 
