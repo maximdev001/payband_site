@@ -5,4 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/payband_site/',
   plugins: [react()],
+  build: {
+    sourcemap: true,
+  },
+  server: {
+    open: true,
+  },
 })
