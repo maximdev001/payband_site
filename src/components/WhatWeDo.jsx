@@ -10,22 +10,11 @@ export default function WhatWeDo() {
       <div className={styles.glow} />
       <div className="container">
         <div className={styles.header}>
-   
-   
-    <h2 className={styles.title}>{w.title}</h2>
-
-
-    
-
-    <p className={styles.subtitle}>{w.subtitle}</p>
+        <h2 className={styles.title}>{w.title}</h2>
+        <p className={styles.subtitle}>{w.subtitle}</p>
         </div>
-
-        {/* Sector pills */}
-    
-
-        {/* Visual illustration */}
         <div className={styles.visual}>
-  <div className={styles.Mobile}></div>
+        <div className={styles.Mobile}></div>
         </div>
       </div>
     </section>

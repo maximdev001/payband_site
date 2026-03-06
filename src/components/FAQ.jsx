@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import styles from './FAQ.module.css';
 import { useLang } from '../i18n/LangContext';
+import styles from './FAQ.module.css';
 
 export default function FAQ() {
   const { t } = useLang();
@@ -12,7 +12,6 @@ export default function FAQ() {
       <div className={styles.glow} />
       <div className="container">
         <div className={styles.header}>
-          <span className="section-tag">{f.tag}</span>
           <h2 className={styles.title}>{f.title}</h2>
         </div>
 
