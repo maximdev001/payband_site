@@ -42,16 +42,17 @@
 /* Text side */
 .text {
   flex: 1;
-  max-width: 580px;
+  max-width: 70rem;
+  position: relative;
+  z-index: 1;
 }
 
-.heading {
+.heading { 
   font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 800;
+  font-weight: 600; 
   line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-}
+  margin-bottom: 1.5rem; 
+  letter-spacing: -0.02em; }
 
 .gradientText {
   background: linear-gradient(90deg, #b026ff 0%, #7b2fff 60%);
@@ -104,9 +105,17 @@
 
 /* Right visual */
 .visual {
-  flex-shrink: 0;
-  position: relative;
-  width: 320px;
+  flex-shrink: 1;
+  position: absolute;
+  right: 0;
+  width: 80rem;
+  height: 100%;
+  background-image: url('../assets/images/HeroImg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  filter: brightness(0.3);
+  pointer-events: none;
 }
 
 .phoneGlow {
@@ -248,9 +257,11 @@
     padding-top: 8rem;
   }
   .visual {
-    width: 100%;
-    max-width: 340px;
-    align-self: center;
+    width: 20rem;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background-position: center center;
   }
 }
 
