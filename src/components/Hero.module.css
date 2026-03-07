@@ -266,12 +266,51 @@
 }
 
 @media (max-width: 600px) {
+
+ .hero {
+    background-image: url('../assets/images/HeroImg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45); /* darkness layer */
+    backdrop-filter: brightness(0.6);
+    z-index: 0;
+  }
+
+  .visual {
+    display: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1; /* keep text above overlay */
+  }
+
   .heading {
     font-size: 2.4rem;
   }
+
   .br {
     display: block;
   }
+
+  .content {
+    padding-top: 7rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .text {
+    max-width: 100%;
+  }
+
 }
 
 /* RTL overrides */

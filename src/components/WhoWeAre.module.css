@@ -3,29 +3,33 @@
   background: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
-
 }
 
 .header {
   text-align: center;
   max-width: 720px;
   margin: 0 auto 3rem;
+  position: relative;
+  z-index: 2;
 }
 
 .glow {
   position: absolute;
   left: -10%;
   top: 10%;
-  width: 500px;
-  height: 500px;
+  width: min(500px, 55vw);
+  aspect-ratio: 1 / 1;
   background: radial-gradient(ellipse at center, rgba(0, 201, 177, 0.1) 0%, transparent 65%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .layout {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 5rem);
   align-items: center;
 }
 
@@ -34,13 +38,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 0;
 }
 
 .visualCard {
   background: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
   border-radius: 24px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .teamRow {
@@ -48,6 +53,7 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .avatar {
@@ -61,6 +67,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-white);
+  flex-shrink: 0;
 }
 
 .teamLabel {
@@ -69,83 +76,70 @@
   margin-left: 0.25rem;
 }
 
-
 .Mobile {
-  width: min(700px, 90vw);
-  height: clamp(420px, 45vw, 640px);
-  margin: 4rem auto;
+  width: min(700px, 100%);
+  height: clamp(320px, 42vw, 640px);
+  margin: clamp(1.5rem, 4vw, 4rem) auto;
   position: relative;
-
   background-image: url('../assets/images/WhoWeAre/WhoWeAre.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
   filter: brightness(0.8);
 }
 
 .Mobile::before {
   content: "";
   position: absolute;
-  inset: -25%;
+  inset: -18%;
   z-index: -1;
-
   background:
     radial-gradient(circle at 40% 40%, rgba(176,38,255,0.25), transparent 60%),
     radial-gradient(circle at 60% 60%, rgba(0,201,177,0.25), transparent 65%);
-
-  filter: blur(120px);
+  filter: blur(100px);
   opacity: 0.7;
 }
 
-
 .icon {
   position: absolute;
-
-  width: clamp(90px, 3vw, 90px);
-  height: clamp(90px , 3vw, 90px);
-
+  width: clamp(52px, 8vw, 90px);
+  height: clamp(52px, 8vw, 90px);
   background-size: contain;
   background-repeat: no-repeat;
-
+  background-position: center;
   opacity: 0.55;
-
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
-
   transition: transform 0.4s ease, opacity 0.3s ease;
-
   animation: float 6s ease-in-out infinite;
 }
-/* icon positions */
+
+/* desktop icon positions */
 .icon1 {
   top: 18%;
   left: 22%;
-   background-image: url('../assets/images/WhoWeAre/WhoWeAreIcon1.png');
+  background-image: url('../assets/images/WhoWeAre/WhoWeAreIcon1.png');
 }
 
 .icon2 {
   top: 40%;
-  left: -60px;
+  left: -8%;
   background-image: url('../assets/images/WhoWeAre/WhoWeAreIcon2.png');
 }
 
 .icon3 {
-  top:22%;
+  top: 22%;
   right: 22%;
   background-image: url('../assets/images/WhoWeAre/WhoWeAreIcon3.png');
 }
 
 .icon4 {
-   top: 44%;
-  right: -40px;
+  top: 44%;
+  right: -5%;
   background-image: url('../assets/images/WhoWeAre/WhoWeAreIcon4.png');
 }
 
-
-
-
 .missionText {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
   font-style: italic;
   color: var(--color-white);
   line-height: 1.6;
@@ -158,20 +152,21 @@
   gap: 0.6rem;
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  flex-wrap: wrap;
 }
 
 .authorDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gradient-button);
   background: linear-gradient(135deg, #b026ff, #00c9b1);
+  flex-shrink: 0;
 }
 
 /* Stats grid */
 .statsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -183,10 +178,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  min-width: 0;
 }
 
 .statValue {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   font-weight: 800;
   background: var(--gradient-hero-text);
   -webkit-background-clip: text;
@@ -198,6 +194,7 @@
 .statLabel {
   font-size: 0.8rem;
   color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 /* Text / Right */
@@ -205,6 +202,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  min-width: 0;
 }
 
 .title {
@@ -250,18 +248,229 @@
   border-radius: 50px;
   padding: 0.35rem 1rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-@media (max-width: 900px) {
+/* large tablet */
+@media (max-width: 1100px) {
   .layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+
+  .Mobile {
+    height: clamp(300px, 44vw, 520px);
+  }
+
+  .icon1 {
+    top: 20%;
+    left: 18%;
+  }
+
+  .icon2 {
+    top: 42%;
+    left: -4%;
+  }
+
+  .icon3 {
+    top: 22%;
+    right: 18%;
+  }
+
+  .icon4 {
+    top: 46%;
+    right: -2%;
   }
 }
 
+/* tablet */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .visual {
+    order: 1;
+  }
+
+  .text {
+    order: 2;
+  }
+
+  .Mobile {
+    width: min(620px, 100%);
+    height: clamp(280px, 58vw, 480px);
+    margin: 1.5rem auto 0;
+  }
+
+  .icon {
+    width: clamp(48px, 10vw, 78px);
+    height: clamp(48px, 10vw, 78px);
+  }
+
+  .icon1 {
+    top: 17%;
+    left: 20%;
+  }
+
+  .icon2 {
+    top: 42%;
+    left: 2%;
+  }
+
+  .icon3 {
+    top: 19%;
+    right: 20%;
+  }
+
+  .icon4 {
+    top: 44%;
+    right: 2%;
+  }
+
+  .text,
+  .title {
+    text-align: center;
+  }
+
+  .pillRow {
+    justify-content: center;
+  }
+}
+
+/* mobile */
 @media (max-width: 580px) {
   .section {
     padding: 5rem 0;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .visualCard {
+    border-radius: 20px;
+    padding: 1.1rem;
+  }
+
+  .Mobile {
+    width: min(100%, 360px);
+    height: clamp(220px, 68vw, 340px);
+    margin: 1rem auto 0;
+  }
+
+  .Mobile::before {
+    inset: -12%;
+    filter: blur(70px);
+  }
+
+  .icon {
+    width: clamp(40px, 12vw, 58px);
+    height: clamp(40px, 12vw, 58px);
+    opacity: 0.6;
+  }
+
+  .icon1 {
+    top: 18%;
+    left: 18%;
+  }
+
+  .icon2 {
+    top: 44%;
+    left: 0%;
+  }
+
+  .icon3 {
+    top: 18%;
+    right: 18%;
+  }
+
+  .icon4 {
+    top: 46%;
+    right: 0%;
+  }
+
+  .missionText {
+    font-size: 0.98rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .statCard {
+    padding: 1rem 1.1rem;
+  }
+
+  .body {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .pill {
+    font-size: 0.76rem;
+    padding: 0.32rem 0.85rem;
+  }
+}
+
+/* very small mobile */
+@media (max-width: 380px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .Mobile {
+    width: min(100%, 300px);
+    height: clamp(200px, 72vw, 280px);
+  }
+
+  .icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .icon1 {
+    top: 20%;
+    left: 16%;
+  }
+
+  .icon2 {
+    top: 45%;
+    left: 1%;
+  }
+
+  .icon3 {
+    top: 20%;
+    right: 16%;
+  }
+
+  .icon4 {
+    top: 47%;
+    right: 1%;
+  }
+
+  .teamRow {
+    gap: 0.4rem;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.72rem;
+  }
+
+  .teamLabel,
+  .statLabel {
+    font-size: 0.76rem;
+  }
+
+  .missionAuthor {
+    font-size: 0.8rem;
   }
 }
 
@@ -275,9 +484,16 @@
 [dir='rtl'] .layout {
   direction: rtl;
 }
+
 [dir='rtl'] .missionAuthor {
   flex-direction: row-reverse;
 }
+
 [dir='rtl'] .teamRow {
   flex-direction: row-reverse;
+}
+
+[dir='rtl'] .teamLabel {
+  margin-left: 0;
+  margin-right: 0.25rem;
 }
