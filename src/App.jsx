@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
-import { LangProvider, useLang } from './i18n/LangContext';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import WhatWeDo from './components/WhatWeDo';
-import Solutions from './components/Solutions';
-import WhoWeAre from './components/WhoWeAre';
-import FAQ from './components/FAQ';
-import Testimonials from './components/Testimonials';
-import TrustedCustomers from './components/TrustedCustomers';
 import CTABanner from './components/CTABanner';
 import Contact from './components/Contact';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import Solutions from './components/Solutions';
+import Testimonials from './components/Testimonials';
+import TrustedCustomers from './components/TrustedCustomers';
+import WhatWeDo from './components/WhatWeDo';
+import WhoWeAre from './components/WhoWeAre';
+import { LangProvider, useLang } from './i18n/LangContext';
 
 function AppInner() {
   const { isRtl, lang } = useLang();
@@ -31,8 +31,9 @@ function AppInner() {
         <FAQ />
         <Testimonials />
         <TrustedCustomers />
+          <Contact />
         <CTABanner />
-        <Contact />
+   
       </main>
       <Footer />
     </>
