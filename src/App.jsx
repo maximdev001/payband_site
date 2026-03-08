@@ -31,8 +31,8 @@ function AppInner() {
         <FAQ />
         <Testimonials />
         <TrustedCustomers />
-          <Contact />
         <CTABanner />
+        <Contact />
    
       </main>
       <Footer />

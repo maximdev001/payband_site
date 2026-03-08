@@ -20,7 +20,7 @@
   grid-template-columns: 1.4fr 1fr 1fr 1fr 1.3fr;
   gap: 2.8rem;
   padding: 2rem 0 0.8rem;
-  align-items: start;
+  align-items: center;
 }
 
 .brand {
@@ -32,18 +32,15 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: flex-start;
   text-decoration: none;
 }
 
-.logoText {
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #b026ff 0%, #7b5cff 45%, #00c9b1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.logoImg {
+  height: 28px;
+  width: auto;
+  display: block;
+  vertical-align: middle;
 }
 
 .copyright {

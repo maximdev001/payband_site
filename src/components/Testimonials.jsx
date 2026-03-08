@@ -2,11 +2,18 @@ import { useState } from 'react';
 import { useLang } from '../i18n/LangContext';
 import styles from './Testimonials.module.css';
 
+import Avatar1 from '../assets/images/avatarone.png';
+import Avatar2 from '../assets/images/avatartow.png';
+import Avatar3 from '../assets/images/avatarthree.png';
+
+const avatarImages = [Avatar1, Avatar2, Avatar3];
+
 export default function Testimonials() {
   const { t } = useLang();
   const tm = t.testimonials;
   const [active, setActive] = useState(0);
   const item = tm.items[active];
+  const avatar = avatarImages[active] ?? avatarImages[0];
 
   const nextSlide = () => {
     setActive((prev) => (prev + 1) % tm.items.length);
@@ -27,18 +34,12 @@ export default function Testimonials() {
           <div className={styles.innerCard}>
             <div className={styles.topRow}>
               <div className={styles.avatarWrap}>
-                {item.image ? (
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className={styles.avatarImage}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className={styles.avatarFallback}>
-                    {item.name.charAt(0)}
-                  </div>
-                )}
+                <img
+                  src={avatar}
+                  alt={item.name}
+                  className={styles.avatarImage}
+                  loading="lazy"
+                />
               </div>
 
               <div className={styles.authorBlock}>

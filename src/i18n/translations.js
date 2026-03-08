@@ -10,8 +10,7 @@ const translations = {
 
     // Hero
     hero: {
-      heading1: 'Smart, Secure,',
-      heading2: 'Cashless',
+        heading1: 'Smart, Secure, Cashless',
       sub: 'Smarter management, smoother experiences, and better control.',
       cta: 'Explore Our Solutions',
       badgeLive: 'Live',
@@ -32,6 +31,8 @@ const translations = {
     solutions: {
       tag: 'Our Solutions',
       title: 'Our Solutions',
+      comingSoon: 'Coming Soon',
+      contactUs: 'Contact Us',
       subtitle:
         'Pay Band offers a suite of smart, cashless solutions tailored for every environment — from schools to hotels to entertainment venues.',
       items: [
@@ -222,6 +223,8 @@ const translations = {
     solutions: {
       tag: 'حلولنا',
       title: 'حلولنا',
+      comingSoon: 'قريباً',
+      contactUs: 'تواصل معنا',
       subtitle:
         'تقدّم Pay Band مجموعة من الحلول الذكية واللانقدية المصممة لكل بيئة — من المدارس إلى الفنادق إلى أماكن الترفيه.',
       items: [

@@ -7,9 +7,13 @@ export default function CTABanner() {
 
   return (
     <section className={styles.section} id="cta">
-      <div className={styles.glowLeft} />
-      <div className={styles.glowCenter} />
-      <div className={styles.glowRight} />
+      <div className={styles.rings} aria-hidden="true">
+        <span className={`${styles.ring} ${styles.ring1}`} />
+        <span className={`${styles.ring} ${styles.ring2}`} />
+        <span className={`${styles.ring} ${styles.ring3}`} />
+        <span className={`${styles.ring} ${styles.ring4}`} />
+        <span className={`${styles.ring} ${styles.ring5}`} />
+      </div>
 
       <div className="container">
         <div className={styles.inner}>
@@ -19,11 +23,9 @@ export default function CTABanner() {
               {c.btn}
             </a>
           </div>
-
-        
         </div>
 
-       <div className={styles.phoneImage} aria-hidden="true" />
+        <div className={styles.phoneImage} aria-hidden="true" />
       </div>
     </section>
   );

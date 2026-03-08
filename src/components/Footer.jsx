@@ -1,5 +1,6 @@
 import { useLang } from '../i18n/LangContext';
 import styles from './Footer.module.css';
+import paybandLogo from '../assets/images/paybandlogo.svg';
 
 export default function Footer() {
   const { t } = useLang();
@@ -12,16 +13,7 @@ export default function Footer() {
         <div className={styles.inner}>
           <div className={styles.brand}>
             <a href="#" className={styles.logo}>
-              <svg width="34" height="34" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="12" stroke="url(#fg)" strokeWidth="2.5" fill="none" />
-                <defs>
-                  <linearGradient id="fg" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#b026ff" />
-                    <stop offset="1" stopColor="#00c9b1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span className={styles.logoText}>pay band</span>
+              <img src={paybandLogo} alt="Pay Band" className={styles.logoImg} />
             </a>
 
             <p className={styles.copyright}>© Pay Band 2024, All rights reserved</p>

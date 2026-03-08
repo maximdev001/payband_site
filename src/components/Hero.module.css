@@ -14,7 +14,7 @@
   right: -5%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(ellipse at center, rgba(176, 38, 255, 0.22) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(97, 40, 130, 0.22) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -24,7 +24,7 @@
   right: 15%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(0, 201, 177, 0.12) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(30, 208, 145, 0.12) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -55,21 +55,25 @@
   letter-spacing: -0.02em; }
 
 .gradientText {
-  background: linear-gradient(90deg, #b026ff 0%, #7b2fff 60%);
+  background: linear-gradient(90deg, #612882 0%, #1ED091 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.headingSpacer {
+  margin-inline-end: 0.35em;
+}
+
 .tealText {
-  background: linear-gradient(90deg, #7b2fff 0%, #00c9b1 100%);
+  background: linear-gradient(90deg, #612882 0%, #1ED091 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .subheading {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   color: var(--color-text-muted);
   margin-bottom: 2.5rem;
   line-height: 1.7;
@@ -89,13 +93,13 @@
   border-radius: 50px;
   transition: opacity 0.2s, transform 0.2s;
   text-decoration: none;
-  box-shadow: 0 0 30px rgba(176, 38, 255, 0.3);
+  box-shadow: 0 0 30px rgba(97, 40, 130, 0.3);
 }
 
 .ctaBtn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(176, 38, 255, 0.45);
+  box-shadow: 0 0 40px rgba(97, 40, 130, 0.45);
 }
 
 .ctaArrow {
@@ -103,15 +107,16 @@
   align-items: center;
 }
 
-/* Right visual */
+/* Right visual - hand/phone image stretches from right to screen center */
 .visual {
   flex-shrink: 1;
   position: absolute;
   right: 0;
-  width: 80rem;
+  left: 50%;
+  width: 50vw;
   height: 100%;
   background-image: url('../assets/images/HeroImg.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;
   filter: brightness(0.3);
@@ -314,6 +319,12 @@
 }
 
 /* RTL overrides */
+[dir='rtl'] .visual {
+  left: 0;
+  right: 50%;
+  background-position: left center;
+}
+
 [dir='rtl'] .heading,
 [dir='rtl'] .subheading {
   text-align: start;
