@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { useLang } from '../i18n/LangContext';
+import paybandLogo from '../assets/images/paybandlogo.svg';
 
 export default function Navbar() {
   const { t, lang, toggleLang, isRtl } = useLang();
@@ -23,30 +24,21 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        {/* Logo */}
-        <a href="#" className={styles.logo}>
-          <span className={styles.logoIcon}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="14" stroke="url(#logoGrad)" strokeWidth="3" fill="none"/>
-              <defs>
-                <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#b026ff"/>
-                  <stop offset="1" stopColor="#00c9b1"/>
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-          <span className={styles.logoText}>pay band</span>
-        </a>
+        <div className={styles.logoNavGroup}>
+          {/* Logo */}
+          <a href="#" className={styles.logo}>
+            <img src={paybandLogo} alt="Pay Band" className={styles.logoImg} />
+          </a>
 
-        {/* Desktop Nav */}
-        <nav className={styles.navLinks}>
+          {/* Desktop Nav */}
+          <nav className={styles.navLinks}>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className={styles.navLink}>
               {link.label}
             </a>
           ))}
-        </nav>
+          </nav>
+        </div>
 
         {/* Right controls: lang switcher + hamburger */}
         <div className={styles.controls}>

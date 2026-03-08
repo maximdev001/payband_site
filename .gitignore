@@ -37,3 +37,4 @@ npm-debug.log*
 
 # Render.com service
 # (no special ignore rules needed, but ensure build outputs are tracked appropriately)
+/.vs

@@ -15,8 +15,8 @@
   --color-card-border: rgba(255, 255, 255, 0.08);
 
   /* Gradients */
-  --gradient-hero-text: linear-gradient(90deg, #b026ff 0%, #7b2fff 40%, #00c9b1 100%);
-  --gradient-button: linear-gradient(90deg, #b026ff 0%, #00c9b1 100%);
+  --gradient-hero-text: linear-gradient(90deg, #612882 0%, #1ED091 100%);
+  --gradient-button: linear-gradient(90deg, #612882 0%, #1ED091 100%);
   --gradient-glow: radial-gradient(ellipse at 60% 50%, rgba(176, 38, 255, 0.18) 0%, transparent 70%);
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
