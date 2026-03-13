@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LangContext';
+import { Link } from 'react-router-dom';
 import styles from './EduBandDetails.module.css';
 import EDU from '../assets/images/Edu.png';
 import EDUHero from '../assets/images/WhatWeDoImg.png';
@@ -9,6 +10,9 @@ export default function EduBandDetails() {
 
   return (
     <section className={styles.section} id="edu-details">
+      <div className={styles.backLink}>
+        <Link to="/">← {t.nav.solutions}</Link>
+      </div>
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <img

@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LangContext';
+import { Link } from 'react-router-dom';
 import styles from './NezolaDetails.module.css';
 import NZLLogo from '../assets/images/nzllogo.svg';
 import NezoolaHero from '../assets/images/WhatWeDoImg.png';
@@ -9,6 +10,9 @@ export default function NezolaDetails() {
 
   return (
     <section className={styles.section} id="nezoola-details">
+      <div className={styles.backLink}>
+        <Link to="/">← {t.nav.solutions}</Link>
+      </div>
 
       <div className={styles.banner}>
         <div className={styles.bannerImage}>

@@ -80,6 +80,13 @@
   gap: 1.5rem;
 }
 
+/* make the entire card clickable when wrapped in a link */
+.cardLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .flipCard {
   perspective: 1200px;
   min-width: 0;

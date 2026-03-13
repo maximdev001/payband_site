@@ -197,10 +197,18 @@
 }
 
 .ctaSub {
-  margin: 0 0 28px;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 18px;
-  font-weight: 500;
+  margin: 0 0 28px; 
+}
+
+/* backlink */
+.backLink {
+  margin-bottom: 16px;
+}
+
+.backLink a {
+  color: #34f5c5;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
 
 .ctaBtn {
