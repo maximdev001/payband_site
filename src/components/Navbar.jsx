@@ -12,11 +12,12 @@ export default function Navbar() {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
+  const baseHref = isHome ? '' : '../';
   const navLinks = [
-    { label: t.nav.solutions, href: isHome ? '#solutions' : '/#solutions' },
-    { label: t.nav.whoWeAre, href: isHome ? '#who-we-are' : '/#who-we-are' },
-    { label: t.nav.whatWeDo, href: isHome ? '#what-we-do' : '/#what-we-do' },
-    { label: t.nav.contact, href: isHome ? '#contact' : '/#contact' },
+    { label: t.nav.solutions, href: `${baseHref}#solutions` },
+    { label: t.nav.whoWeAre, href: `${baseHref}#who-we-are` },
+    { label: t.nav.whatWeDo, href: `${baseHref}#what-we-do` },
+    { label: t.nav.contact, href: `${baseHref}#contact` },
   ];
 
   useEffect(() => {
