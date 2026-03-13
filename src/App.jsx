@@ -10,7 +10,10 @@ import Testimonials from './components/Testimonials';
 import TrustedCustomers from './components/TrustedCustomers';
 import WhatWeDo from './components/WhatWeDo';
 import WhoWeAre from './components/WhoWeAre';
-import { LangProvider, useLang } from './i18n/LangContext';
+import NezolaDetails from './components/Nezoladetails';
+import EduBandDetails from './components/EduBandDetails';
+import EduFeatures from './components/EduFeatures';
+import EndEdu from './components/EndEdu';import { LangProvider, useLang } from './i18n/LangContext';
 
 function AppInner() {
   const { isRtl, lang } = useLang();
@@ -32,6 +35,10 @@ function AppInner() {
         <Testimonials />
         <TrustedCustomers />
         <CTABanner />
+        <EduBandDetails />
+        <EduFeatures />
+        <EndEdu />       
+        <NezolaDetails />
         <Contact />
    
       </main>
