@@ -10,7 +10,13 @@ import Testimonials from './components/Testimonials';
 import TrustedCustomers from './components/TrustedCustomers';
 import WhatWeDo from './components/WhatWeDo';
 import WhoWeAre from './components/WhoWeAre';
+import NezolaDetails from './components/NezolaDetails';
+import EduBandDetails from './components/EduBandDetails';
+import EduFeatures from './components/EduFeatures';
+import EndEdu from './components/EndEdu';
 import { LangProvider, useLang } from './i18n/LangContext';
+// routing
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function AppInner() {
   const { isRtl, lang } = useLang();
@@ -21,22 +27,49 @@ function AppInner() {
   }, [isRtl, lang]);
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
       <main>
-        <Hero />
-        <WhatWeDo />
-        <Solutions />
-        <WhoWeAre />
-        <FAQ />
-        <Testimonials />
-        <TrustedCustomers />
-        <CTABanner />
-        <Contact />
-   
+        <Routes>
+          {/* homepage with all main sections */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <WhatWeDo />
+                <Solutions />
+                <WhoWeAre />
+                <FAQ />
+                <Testimonials />
+                <TrustedCustomers />
+                <CTABanner />
+                <Contact />
+              </>
+            }
+          />
+
+          {/* edu band dedicated page */}
+          <Route
+            path="/edu"
+            element={
+              <>
+                <EduBandDetails />
+                <EduFeatures />
+                <EndEdu />
+              </>
+            }
+          />
+
+          {/* nezoola dedicated page */}
+          <Route path="/nezola" element={<NezolaDetails />} />
+
+          {/* fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { useLang } from '../i18n/LangContext';
+import { useLocation } from 'react-router-dom';
 import paybandLogo from '../assets/images/paybandlogo.svg';
 
 export default function Navbar() {
@@ -8,11 +9,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  const baseHref = isHome ? '' : '../';
   const navLinks = [
-    { label: t.nav.solutions, href: '#solutions' },
-    { label: t.nav.whoWeAre, href: '#who-we-are' },
-    { label: t.nav.whatWeDo, href: '#what-we-do' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.solutions, href: `${baseHref}#solutions` },
+    { label: t.nav.whoWeAre, href: `${baseHref}#who-we-are` },
+    { label: t.nav.whatWeDo, href: `${baseHref}#what-we-do` },
+    { label: t.nav.contact, href: `${baseHref}#contact` },
   ];
 
   useEffect(() => {

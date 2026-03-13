@@ -145,6 +145,75 @@ const translations = {
       ],
     },
 
+    // Nezoola Details
+    nezoola: {
+      bannerSub: 'Nezoola',
+
+      whatIsTitleStart: 'What is',
+      whatIsTitleHighlight: 'Nezoola',
+      whatIsTitleEnd: '?',
+      whatIsDesc:
+        'Nezoola is a user-friendly platform that connects trusted vendors to customers, streamlining the exploring, planning, and booking of different activities.',
+
+      goalTitleStart: 'What is',
+      goalTitleHighlight: 'Our Goal',
+      goalTitleEnd: '?',
+      goalDesc:
+        'Let users explore and book a variety of activities, while vendors manage their bookings & time slots through a simple dashboard.',
+
+      ctaTitleStart: 'Get Started With',
+      ctaTitleHighlight: 'Nezoola',
+      ctaTitleEnd: '!',
+      ctaSub: 'Simplify your operations, grow your business.',
+      ctaBtn: 'Book a demo',
+    },
+
+
+
+    // EDU Details
+    edu: {
+      bannerSub: 'Edu Band',
+
+      whatIsTitleStart: 'What is',
+      whatIsTitleHighlight: 'Edu Band',
+      whatIsTitleEnd: '?',
+      whatIsDesc:
+        'A smart platform that combines a mobile app with NFC bracelets, allowing parents, students, and schools to manage payments, attendance, academic tracking, and school activities securely and effortlessly.',
+
+      goalTitleStart: 'What is',
+      goalTitleHighlight: 'Our Goal',
+      goalTitleEnd: '?',
+      goalDesc:
+        'To create a smarter, safer, and more convenient school experience, empowering parents, students, and schools to manage daily school life effortlessly and securely.',
+
+      ctaTitleStart: 'Get Started With',
+      ctaTitleHighlight: 'Edu Band',
+      ctaTitleEnd: '!',
+      ctaSub: 'Empower your school with a smarter, safer, and more convenient solution.',
+      ctaBtn: 'Book a demo',
+
+      featuresTitle: 'School Management Made Simple, Cashless, And Connected.',
+      features: [
+        {
+          title: 'Parent Control & Cashless Payments',
+          desc: 'Parents can manage multiple children profiles under one parent account, set spending limits, track homework and activities, and pay instantly for meals, trips, uniforms, and activities. Completely cashless.',
+          accent: 'pink',
+        },
+        {
+          title: 'All-in-One School Management',
+          desc: 'No more manual attendance, bus tracking, trip organization, or long queues. Everything is managed from a single dashboard with role-based access for staff.',
+          accent: 'yellow',
+        },
+        {
+          title: 'Vendors Tracking',
+          desc: 'Vendors gain full visibility into orders, sales, and inventory, allowing them to efficiently manage canteen operations directly through the dashboard.',
+          accent: 'green',
+        },
+      ],
+    },
+
+    
+
     // CTA Banner
     cta: {
       title: 'Be One of Our Valued Customers',
@@ -336,7 +405,73 @@ const translations = {
         'مدرسة ستانفورد الدولية',
       ],
     },
+    // Nezoola Details
+    nezoola: {
+      bannerTitle: 'NZL',
+      bannerSub: 'Nezoola',
 
+      whatIsTitleStart: 'ما هي',
+      whatIsTitleHighlight: 'Nezoola',
+      whatIsTitleEnd: '؟',
+      whatIsDesc:
+        'Nezoola منصة سهلة الاستخدام تربط بين مزوّدي الخدمات الموثوقين والعملاء، مما يسهّل عملية استكشاف الأنشطة المختلفة والتخطيط لها وحجزها.',
+
+      goalTitleStart: 'ما هو',
+      goalTitleHighlight: 'هدفنا',
+      goalTitleEnd: '؟',
+      goalDesc:
+        'هدفنا هو تمكين المستخدمين من استكشاف وحجز مجموعة متنوعة من الأنشطة بسهولة، بينما يتمكن مزوّدو الخدمات من إدارة حجوزاتهم والمواعيد المتاحة من خلال لوحة تحكم بسيطة.',
+
+      ctaTitleStart: 'ابدأ مع',
+      ctaTitleHighlight: 'Nezoola',
+      ctaTitleEnd: '!',
+      ctaSub: 'بسّط عملياتك ووسّع نطاق عملك.',
+      ctaBtn: 'احجز عرضاً توضيحياً',
+    },
+    // EDU Details
+    edu: {
+      bannerSub: 'Edu Band ',
+
+      whatIsTitleStart: 'ما هو',
+      whatIsTitleHighlight: 'Edu Band',
+      whatIsTitleEnd: '؟',
+      whatIsDesc:
+        'منصة ذكية تجمع بين تطبيق موبايل وأساور NFC، مما يتيح لأولياء الأمور والطلاب والمدارس إدارة المدفوعات والحضور وتتبع الأداء الأكاديمي والأنشطة المدرسية بسهولة وأمان.',
+
+      goalTitleStart: 'ما هو',
+      goalTitleHighlight: 'هدفنا',
+      goalTitleEnd: '؟',
+      goalDesc:
+        'إنشاء تجربة مدرسية أكثر ذكاءً وأمانًا وسهولة، تمكّن أولياء الأمور والطلاب والمدارس من إدارة الحياة المدرسية اليومية بسهولة وكفاءة.',
+
+      ctaTitleStart: 'ابدأ مع',
+      ctaTitleHighlight: 'Edu Band',
+      ctaTitleEnd: '!',
+      ctaSub: 'امنح مدرستك حلاً أكثر ذكاءً وأمانًا وراحة.',
+      ctaBtn: 'احجز عرضًا توضيحيًا',
+
+       //features edu
+      featuresTitle: 'إدارة مدرسية أبسط، بلا نقود، وأكثر ترابطًا.',
+      features: [
+        {
+          title: 'تحكم أولياء الأمور والمدفوعات اللانقدية',
+          desc: 'يمكن لأولياء الأمور إدارة ملفات أكثر من طفل من خلال حساب واحد، وتحديد حدود الإنفاق، ومتابعة الواجبات والأنشطة، والدفع الفوري للوجبات والرحلات والزي المدرسي والأنشطة، وكل ذلك بشكل لانقدي بالكامل.',
+          accent: 'pink',
+        },
+        {
+          title: 'إدارة مدرسية متكاملة في مكان واحد',
+          desc: 'لا مزيد من تسجيل الحضور يدويًا أو تتبع الحافلات أو تنظيم الرحلات أو الطوابير الطويلة. كل شيء يُدار من لوحة تحكم واحدة مع صلاحيات مختلفة للموظفين.',
+          accent: 'yellow',
+        },
+        {
+          title: 'متابعة البائعين',
+          desc: 'يحصل البائعون على رؤية كاملة للطلبات والمبيعات والمخزون، مما يتيح لهم إدارة عمليات الكانتين بكفاءة مباشرة من خلال لوحة التحكم.',
+          accent: 'green',
+        },
+      ],
+    },
+
+  
     // CTA Banner
     cta: {
       title: 'كن أحد عملائنا الكرام',

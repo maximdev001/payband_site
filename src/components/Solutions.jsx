@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LangContext';
+import { Link } from 'react-router-dom';
 import styles from './Solutions.module.css';
 
 import EduImg from '../assets/images/Edu.png';
@@ -51,7 +52,10 @@ export default function Solutions() {
             const comingSoon = COMING_SOON.includes(i);
             const isCustomize = i === CUSTOMIZE_INDEX;
 
-            return (
+            // only first two cards (edu & nezola) should link to dedicated pages
+            const path = i === 0 ? '/edu' : i === 1 ? '/nezola' : null;
+
+            const card = (
               <div
                 className={styles.flipCard}
                 key={i}
@@ -119,6 +123,21 @@ export default function Solutions() {
                 </div>
               </div>
             );
+
+            if (path) {
+              return (
+                <Link
+                  to={path}
+                  key={i}
+                  className={styles.cardLink}
+                  aria-label={`Go to ${item.name} details`}
+                >
+                  {card}
+                </Link>
+              );
+            }
+
+            return card;
           })}
         </div>
       </div>
