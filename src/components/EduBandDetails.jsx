@@ -10,9 +10,6 @@ export default function EduBandDetails() {
 
   return (
     <section className={styles.section} id="edu-details">
-      <div className={styles.backLink}>
-        <Link to="/">← {t.nav.solutions}</Link>
-      </div>
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <img

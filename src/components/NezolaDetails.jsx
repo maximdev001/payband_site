@@ -10,10 +10,6 @@ export default function NezolaDetails() {
 
   return (
     <section className={styles.section} id="nezoola-details">
-      <div className={styles.backLink}>
-        <Link to="/">← {t.nav.solutions}</Link>
-      </div>
-
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <img
