@@ -18,51 +18,102 @@ export default function Contact() {
   });
 
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [retryCount, setRetryCount] = useState(0);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  const data = {
-    firstName: form.firstName,
-    lastName: form.lastName,
-    companyName: form.company,
-    industry: form.industry,
-    email: form.email,
-    phoneNumber: form.phone,
-    solutionInterest: form.solution,
-    message: form.message,
-    submittedByUserId: "",
-    submittedByType: "PayBandSite"
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[+]?[\d\s\-\(\)]+$/;
+    
+    if (!emailRegex.test(form.email)) {
+      setErrorMessage('Please enter a valid email address');
+      return false;
+    }
+    
+    if (!phoneRegex.test(form.phone) || form.phone.replace(/\D/g, '').length < 10) {
+      setErrorMessage('Please enter a valid phone number (at least 10 digits)');
+      return false;
+    }
+    
+    return true;
   };
 
-  try {
-    const response = await fetch(
-      "https://nzl-api.onrender.com/api/ContactUs",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          accept: "text/plain"
-        },
-        body: JSON.stringify(data)
-      }
-    );
+  const resetForm = () => {
+    setForm({
+      firstName: '',
+      lastName: '',
+      company: '',
+      industry: '',
+      email: '',
+      phone: '',
+      solution: '',
+      message: '',
+    });
+    setSent(false);
+    setErrorMessage('');
+    setRetryCount(0);
+  };
 
-    const result = await response.json();
-
-    if (result.success) {
-      setSent(true);
-    } else {
-      alert(result.message);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    
+    if (!validateForm()) {
+      return;
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+
+    setSubmitting(true);
+
+    const data = {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      companyName: form.company,
+      industry: form.industry,
+      email: form.email,
+      phoneNumber: form.phone,
+      solutionInterest: form.solution,
+      message: form.message,
+      submittedByUserId: "",
+      submittedByType: "PayBandSite"
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL || 'https://nzl-api.onrender.com'}/api/ContactUs`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            accept: "text/plain"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSent(true);
+        setRetryCount(0);
+      } else {
+        setErrorMessage(result.message || 'Submission failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setErrorMessage(`Network error: ${error.message}. Please check your connection and try again.`);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section className={styles.section} id="contact">
@@ -166,6 +217,12 @@ const handleSubmit = async (e) => {
               <div className={styles.successIcon}>✓</div>
               <h3>{c.successTitle}</h3>
               <p>{c.successBody}</p>
+              <button 
+                className={styles.resetBtn}
+                onClick={resetForm}
+              >
+                Send Another Message
+              </button>
             </div>
           ) : (
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -291,9 +348,29 @@ const handleSubmit = async (e) => {
                 />
               </div>
 
-              <button className={styles.submitBtn} type="submit">
-                Send
+              <button 
+                className={styles.submitBtn} 
+                type="submit"
+                disabled={submitting}
+              >
+                {submitting ? 'Sending...' : 'Send'}
               </button>
+              
+              {errorMessage && (
+                <div className={styles.errorMessage}>
+                  <p>{errorMessage}</p>
+                  <button 
+                    type="button" 
+                    className={styles.retryBtn}
+                    onClick={() => {
+                      setRetryCount(prev => prev + 1);
+                      setErrorMessage('');
+                    }}
+                  >
+                    Retry ({retryCount})
+                  </button>
+                </div>
+              )}
             </form>
           )}
         </div>
