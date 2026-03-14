@@ -23,10 +23,46 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    setSent(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = {
+    firstName: form.firstName,
+    lastName: form.lastName,
+    companyName: form.company,
+    industry: form.industry,
+    email: form.email,
+    phoneNumber: form.phone,
+    solutionInterest: form.solution,
+    message: form.message,
+    submittedByUserId: "",
+    submittedByType: "PayBandSite"
   };
+
+  try {
+    const response = await fetch(
+      "https://nzl-api.onrender.com/api/ContactUs",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "text/plain"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.success) {
+      setSent(true);
+    } else {
+      alert(result.message);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <section className={styles.section} id="contact">
