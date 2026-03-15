@@ -9,6 +9,7 @@ export default function Hero() {
     <section className={styles.hero} id="hero">
       <div className={styles.glow} />
       <div className={styles.glowTeal} />
+      <div className={styles.centralGlow} />
 
       <div className={`container ${styles.content}`}>
         <div className={styles.text}>
