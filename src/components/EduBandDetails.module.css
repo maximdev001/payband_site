@@ -215,20 +215,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 178px;
+  min-width: 180px;
   height: 52px;
-  padding: 0 28px;
-  border-radius: 999px;
-
+  padding: 0 2rem;
+  border-radius: 50px;
   text-decoration: none;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #9d15c2 30%, #20f0b5 100%);
-  box-shadow: 0 8px 22px rgba(32, 240, 181, 0.18);
-
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #612882 0%, #1ED091 100%);
+  box-shadow: 0 8px 24px rgba(97, 40, 130, 0.25);
   transition: transform 0.2s ease, opacity 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .ctaBtn:hover {

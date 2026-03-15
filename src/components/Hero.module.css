@@ -135,6 +135,9 @@
   transition: opacity 0.2s, transform 0.2s;
   text-decoration: none;
   box-shadow: 0 0 30px rgba(97, 40, 130, 0.3);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .ctaBtn:hover {

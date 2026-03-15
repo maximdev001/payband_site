@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { useLang } from '../i18n/LangContext';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import paybandLogo from '../assets/images/paybandlogo.svg';
 
 export default function Navbar() {
@@ -10,14 +10,27 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
-  const baseHref = isHome ? '' : '../';
+  const handleNavigation = (sectionId) => {
+    if (isHome) {
+      // If on home, smooth scroll to section
+      const element = document.getElementById(sectionId.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other page, navigate to home with hash
+      navigate(`/${sectionId}`);
+    }
+  };
+
   const navLinks = [
-    { label: t.nav.solutions, href: `${baseHref}#solutions` },
-    { label: t.nav.whoWeAre, href: `${baseHref}#who-we-are` },
-    { label: t.nav.whatWeDo, href: `${baseHref}#what-we-do` },
-    { label: t.nav.contact, href: `${baseHref}#contact` },
+    { label: t.nav.solutions, onClick: () => handleNavigation('#solutions') },
+    { label: t.nav.whoWeAre, onClick: () => handleNavigation('#who-we-are') },
+    { label: t.nav.whatWeDo, onClick: () => handleNavigation('#what-we-do') },
+    { label: t.nav.contact, onClick: () => handleNavigation('#contact') },
   ];
 
   useEffect(() => {
@@ -26,21 +39,33 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle hash scrolling on route change
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.logoNavGroup}>
           {/* Logo */}
-          <a href="#" className={styles.logo}>
+          <a href="/" className={styles.logo}>
             <img src={paybandLogo} alt="Pay Band" className={styles.logoImg} />
           </a>
 
           {/* Desktop Nav */}
           <nav className={styles.navLinks}>
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className={styles.navLink}>
+          {navLinks.map((link, index) => (
+            <button key={index} onClick={link.onClick} className={styles.navLink}>
               {link.label}
-            </a>
+            </button>
           ))}
           </nav>
         </div>
@@ -70,15 +95,17 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+          {navLinks.map((link, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                link.onClick();
+                setMenuOpen(false);
+              }}
               className={styles.mobileLink}
-              onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <button className={`${styles.langBtn} ${styles.mobileLangBtn}`} onClick={toggleLang}>
             {lang === 'en' ? 'العربية' : 'English'}

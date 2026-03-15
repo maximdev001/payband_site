@@ -1,9 +1,15 @@
 import { useLang } from '../i18n/LangContext';
 import styles from './CTABanner.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function CTABanner() {
   const { t } = useLang();
   const c = t.cta;
+  const navigate = useNavigate();
+
+  const handleCTAClick = () => {
+    navigate('/#contact');
+  };
 
   return (
     <section className={styles.section} id="cta">
@@ -19,9 +25,9 @@ export default function CTABanner() {
         <div className={styles.inner}>
           <div className={styles.content}>
             <h2 className={styles.title}>{c.title}</h2>
-            <a href="#contact" className={styles.btn}>
+            <button onClick={handleCTAClick} className={styles.btn}>
               {c.btn}
-            </a>
+            </button>
           </div>
         </div>
 
