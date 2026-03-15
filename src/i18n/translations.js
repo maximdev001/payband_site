@@ -211,8 +211,29 @@ const translations = {
         },
       ],
     },
-
-    
+    //ourSoftware
+      ourSoftware: {
+      title: 'Our Softwares',
+      next: 'Next',
+      cards: {
+        parentApp: {
+          title: "Parent’s App",
+          description: "Your child’s day at a glance",
+        },
+        childApp: {
+          title: "Child's App",
+          description: 'Your school day, organized simply',
+        },
+        teacherApp: {
+          title: "Teacher's App",
+          description: 'All-in-one classroom management app',
+        },
+        busManagement: {
+          title: 'Bus Management',
+          description: 'Safe, organized student transport system',
+        },
+      },
+    },
 
     // CTA Banner
     cta: {
@@ -470,7 +491,29 @@ const translations = {
         },
       ],
     },
-
+    //ourSoftware
+      ourSoftware: {
+      title: 'برامجنا',
+      next: 'التالي',
+      cards: {
+        parentApp: {
+          title: 'تطبيق ولي الأمر',
+          description: 'كل ما يخص يوم طفلك في نظرة سريعة',
+        },
+        childApp: {
+          title: 'تطبيق الطالب',
+          description: 'يومك الدراسي بشكل منظم وبسيط',
+        },
+        teacherApp: {
+          title: 'تطبيق المعلم',
+          description: 'تطبيق متكامل لإدارة الفصل الدراسي',
+        },
+        busManagement: {
+          title: 'إدارة الحافلات',
+          description: 'نظام آمن ومنظم لنقل ومتابعة الطلاب',
+        },
+      },
+    },
   
     // CTA Banner
     cta: {

@@ -1,5 +1,6 @@
 import { useLang } from '../i18n/LangContext';
 import styles from './EduBandDetails.module.css';
+import { HashLink } from 'react-router-hash-link';
 
 export default function EndEdu() {
   const { t } = useLang();
@@ -22,10 +23,11 @@ export default function EndEdu() {
             {n.ctaSub}
           </p>
 
-          <a href="#contact" className={styles.ctaBtn}>
+          {/* <a href="#contact" className={styles.ctaBtn}>
             {n.ctaBtn}
-          </a>
-
+          </a> */}
+          <HashLink smooth to="/#contact" className={styles.ctaBtn}>{n.ctaBtn}
+          </HashLink>
         </div>
 
       </div>

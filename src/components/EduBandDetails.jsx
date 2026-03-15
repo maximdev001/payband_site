@@ -2,7 +2,7 @@ import { useLang } from '../i18n/LangContext';
 import { Link } from 'react-router-dom';
 import styles from './EduBandDetails.module.css';
 import EDU from '../assets/images/Edu.png';
-import EDUHero from '../assets/images/WhatWeDoImg.png';
+import EDUHero from '../assets/images/cuate.svg';
 
 export default function EduBandDetails() {
   const { t } = useLang();

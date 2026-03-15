@@ -13,6 +13,8 @@ import WhoWeAre from './components/WhoWeAre';
 import NezolaDetails from './components/NezolaDetails';
 import EduBandDetails from './components/EduBandDetails';
 import EduFeatures from './components/EduFeatures';
+import OurSoftware from './components/OurSoftware';
+
 import EndEdu from './components/EndEdu';
 import { LangProvider, useLang } from './i18n/LangContext';
 // routing
@@ -56,6 +58,7 @@ function AppInner() {
               <>
                 <EduBandDetails />
                 <EduFeatures />
+                <OurSoftware/>
                 <EndEdu />
               </>
             }

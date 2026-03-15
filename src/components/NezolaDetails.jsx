@@ -2,7 +2,10 @@ import { useLang } from '../i18n/LangContext';
 import { Link } from 'react-router-dom';
 import styles from './NezolaDetails.module.css';
 import NZLLogo from '../assets/images/nzllogo.svg';
-import NezoolaHero from '../assets/images/WhatWeDoImg.png';
+import NezoolaHero from '../assets/images/pana.svg';
+import { HashLink } from 'react-router-hash-link';
+import whatIsIcon from '../assets/images/whatIsIcon.png';
+import goalIcon from '../assets/images/goalIcon.svg';
 
 export default function NezolaDetails() {
   const { t } = useLang();
@@ -31,18 +34,12 @@ export default function NezolaDetails() {
       </div>
 
       <div className="container">
-
         <div className={styles.cards}>
-          {/* What is Nezoola */}
           <div className={styles.infoCard}>
             <div className={styles.infoCardInner}>
               <h3 className={styles.cardTitle}>
                 <span className={styles.cardIcon}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="10" fill="white" />
-                    <path d="M12 10.2V16" stroke="#0b0b12" strokeWidth="1.8" strokeLinecap="round"/>
-                    <circle cx="12" cy="7.4" r="1.2" fill="#0b0b12"/>
-                  </svg>
+                  <img src={whatIsIcon} alt="What is icon" className={styles.cardIconImg} />
                 </span>
 
                 {n.whatIsTitleStart}{' '}
@@ -54,18 +51,11 @@ export default function NezolaDetails() {
             </div>
           </div>
 
-          {/* Our Goal */}
           <div className={styles.infoCard}>
             <div className={styles.infoCardInner}>
               <h3 className={styles.cardTitle}>
                 <span className={styles.cardIcon}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="4.2" stroke="white" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="1.6" fill="white"/>
-                    <path d="M15.8 8.2L20.2 3.8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M18.6 3.8H20.2V5.4" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                  <img src={goalIcon} alt="Goal icon" className={styles.cardIconImg} />
                 </span>
 
                 {n.goalTitleStart}{' '}
@@ -78,7 +68,6 @@ export default function NezolaDetails() {
           </div>
         </div>
 
-        {/* CTA Card */}
         <div className={styles.ctaCard}>
           <h3 className={styles.ctaTitle}>
             {n.ctaTitleStart}{' '}
@@ -88,11 +77,10 @@ export default function NezolaDetails() {
 
           <p className={styles.ctaSub}>{n.ctaSub}</p>
 
-          <a href="#contact" className={styles.ctaBtn}>
+          <HashLink smooth to="/#contact" className={styles.ctaBtn}>
             {n.ctaBtn}
-          </a>
+          </HashLink>
         </div>
-
       </div>
     </section>
   );

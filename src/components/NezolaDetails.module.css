@@ -10,10 +10,25 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 18%, rgba(48, 67, 255, 0.14), transparent 22%),
-    radial-gradient(circle at 50% 52%, rgba(255, 145, 0, 0.12), transparent 18%),
-    radial-gradient(circle at 72% 78%, rgba(162, 61, 245, 0.14), transparent 22%);
+    radial-gradient(circle at 50% 18%, rgba(40, 58, 255, 0.10), transparent 22%),
+    radial-gradient(circle at 38% 56%, rgba(255, 145, 0, 0.14), transparent 18%),
+    radial-gradient(circle at 72% 76%, rgba(98, 40, 130, 0.18), transparent 22%);
   pointer-events: none;
+}
+
+/* ================= icon ================= */
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIconImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 /* ================= Banner ================= */
@@ -27,15 +42,13 @@
   min-height: 250px;
   padding: 34px 42px;
   margin-bottom: 28px;
-
   background:
-    radial-gradient(circle at 48% 48%, rgba(255, 149, 0, 0.12), transparent 18%),
-    radial-gradient(circle at 64% 18%, rgba(74, 53, 255, 0.18), transparent 30%),
-    linear-gradient(180deg, rgba(6, 6, 8, 0.98), rgba(3, 3, 5, 0.98));
-
+    radial-gradient(circle at 42% 48%, rgba(255, 145, 0, 0.10), transparent 18%),
+    radial-gradient(circle at 68% 20%, rgba(69, 32, 146, 0.22), transparent 30%),
+    linear-gradient(180deg, rgba(8, 8, 12, 0.98), rgba(3, 3, 5, 0.98));
   box-shadow:
-    0 0 0 1px rgba(0, 174, 255, 0.08),
-    0 0 28px rgba(0, 120, 255, 0.08);
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 28px rgba(98, 40, 130, 0.08);
 }
 
 .bannerImage {
@@ -53,20 +66,22 @@
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: 1px;
-  color: #ffb400;
+  color: #FFAA00;
 }
 
 .bannerSub {
   margin: 18px 0 0;
   font-size: 30px;
   font-weight: 700;
-  color: #8de8d8;
+  color: #74DDD0;
 }
+
 .nzlLogo {
   width: 220px;
   display: block;
   margin: 0 auto;
 }
+
 .heroImg {
   width: 100%;
   max-width: 360px;
@@ -92,17 +107,7 @@
   min-height: 260px;
   padding: var(--borderSize);
   border-radius: var(--radius);
-
-  background: conic-gradient(
-    from 210deg at 50% 50%,
-    #ffc800 0deg,
-    #ff9a00 70deg,
-    #ff7a00 120deg,
-    #b026ff 240deg,
-    #6f3cff 320deg,
-    #ffc800 360deg
-  );
-
+  background: linear-gradient(90deg, #E79A00 0%, #5E229C 100%);
   clip-path: polygon(
     0 0,
     calc(100% - var(--cut)) 0,
@@ -118,15 +123,11 @@
   min-height: 260px;
   padding: 40px 50px;
   box-sizing: border-box;
-
   border-radius: calc(var(--radius) - var(--borderSize));
-
-  background: linear-gradient(
-    135deg,
-    rgba(20, 18, 30, 0.92),
-    rgba(10, 10, 20, 0.96)
-  );
-
+  background:
+    radial-gradient(circle at 28% 55%, rgba(255, 122, 0, 0.07), transparent 22%),
+    radial-gradient(circle at 78% 30%, rgba(90, 35, 170, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(14, 12, 21, 0.96), rgba(7, 7, 15, 0.98));
   clip-path: polygon(
     0 0,
     calc(100% - calc(var(--cut) - var(--borderSize))) 0,
@@ -143,7 +144,7 @@
   align-items: center;
   gap: 10px;
   margin: 0 0 18px;
-  color: #ffffff;
+  color: #F5F5F5;
   font-size: 18px;
   font-weight: 700;
 }
@@ -151,7 +152,7 @@
 .cardTitleAccent,
 .highlight,
 .ctaTitleAccent {
-  color: #ffb300;
+  color: #FFAA00;
 }
 
 .cardText {
@@ -170,11 +171,10 @@
   text-align: center;
   border-radius: 26px;
   overflow: hidden;
-
   background:
-    radial-gradient(circle at 50% 45%, rgba(255, 149, 0, 0.08), transparent 20%),
-    radial-gradient(circle at 72% 25%, rgba(151, 71, 255, 0.18), transparent 34%),
-    linear-gradient(180deg, rgba(7, 7, 10, 0.98), rgba(3, 3, 5, 0.98));
+    radial-gradient(circle at 34% 46%, rgba(255, 122, 0, 0.10), transparent 22%),
+    radial-gradient(circle at 72% 24%, rgba(98, 40, 130, 0.20), transparent 34%),
+    linear-gradient(180deg, rgba(10, 10, 14, 0.99), rgba(3, 3, 5, 0.98));
 }
 
 .ctaCard::before {
@@ -183,40 +183,45 @@
   inset: 0;
   padding: 1.5px;
   border-radius: 26px;
-
   background: linear-gradient(
     90deg,
-    rgba(255, 130, 50, 0.65),
-    rgba(133, 48, 255, 0.9)
+    rgba(143, 92, 74, 0.95),
+    rgba(75, 17, 177, 0.95)
   );
-
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
-
   pointer-events: none;
 }
 
 .ctaTitle {
-  margin: 0 0 14px;
+  margin: 0 auto 18px;
+  max-width: 900px;
+  color: #F5F5F5;
+  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
-/* backlink */
 .backLink {
   margin-bottom: 16px;
 }
 
 .backLink a {
-  color: #ffb300;
+  color: #FFB300;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
 .ctaSub {
-  margin: 0 0 28px;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 18px;
+  margin: 0 0 34px;
+  color: rgba(204, 202, 202, 0.72);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
   font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
+
 
 .ctaBtn {
   display: inline-flex;
@@ -226,15 +231,12 @@
   height: 52px;
   padding: 0 28px;
   border-radius: 999px;
-
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 15px;
   font-weight: 700;
-
-  background: linear-gradient(90deg, #f4a000 0%, #a149f5 100%);
-  box-shadow: 0 8px 22px rgba(161, 73, 245, 0.2);
-
+  background: linear-gradient(90deg, #EAA11A 0%, #8C57B7 100%);
+  box-shadow: 0 8px 22px rgba(140, 87, 183, 0.22);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -246,7 +248,6 @@
 /* ================= Responsive ================= */
 
 @media (max-width: 1024px) {
-
   .banner {
     grid-template-columns: 1fr;
     text-align: center;
@@ -262,12 +263,11 @@
   }
 
   .ctaTitle {
-    font-size: 48px;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
   }
 }
 
 @media (max-width: 768px) {
-
   .section {
     padding: 70px 0;
   }
@@ -299,7 +299,8 @@
   }
 
   .ctaTitle {
-    font-size: 38px;
+    font-size: clamp(2rem, 4.6vw, 2.8rem);
+    line-height: 1.15;
   }
 
   .ctaSub {
@@ -308,7 +309,6 @@
 }
 
 @media (max-width: 580px) {
-
   .cards {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -339,7 +339,8 @@
   }
 
   .ctaTitle {
-    font-size: 30px;
+    font-size: 2rem;
+    line-height: 1.18;
   }
 
   .ctaSub {
@@ -353,7 +354,6 @@
 }
 
 @media (max-width: 380px) {
-
   .bannerTitle {
     font-size: 46px;
   }
@@ -363,7 +363,8 @@
   }
 
   .ctaTitle {
-    font-size: 26px;
+    font-size: 1.75rem;
+    line-height: 1.2;
   }
 
   .cardText {
