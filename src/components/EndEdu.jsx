@@ -1,9 +1,15 @@
 import { useLang } from '../i18n/LangContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './EduBandDetails.module.css';
 
 export default function EndEdu() {
   const { t } = useLang();
   const n = t.edu;
+  const navigate = useNavigate();
+
+  const handleCTAClick = () => {
+    navigate('/#contact');
+  };
 
   return (
     <section className={styles.section}>
@@ -22,9 +28,9 @@ export default function EndEdu() {
             {n.ctaSub}
           </p>
 
-          <a href="#contact" className={styles.ctaBtn}>
+          <button onClick={handleCTAClick} className={styles.ctaBtn}>
             {n.ctaBtn}
-          </a>
+          </button>
 
         </div>
 

@@ -1,5 +1,5 @@
 import { useLang } from '../i18n/LangContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './NezolaDetails.module.css';
 import NZLLogo from '../assets/images/nzllogo.svg';
 import NezoolaHero from '../assets/images/WhatWeDoImg.png';
@@ -7,6 +7,11 @@ import NezoolaHero from '../assets/images/WhatWeDoImg.png';
 export default function NezolaDetails() {
   const { t } = useLang();
   const n = t.nezoola;
+  const navigate = useNavigate();
+
+  const handleCTAClick = () => {
+    navigate('/#contact');
+  };
 
   return (
     <section className={styles.section} id="nezoola-details">
@@ -88,9 +93,9 @@ export default function NezolaDetails() {
 
           <p className={styles.ctaSub}>{n.ctaSub}</p>
 
-          <a href="#contact" className={styles.ctaBtn}>
+          <button onClick={handleCTAClick} className={styles.ctaBtn}>
             {n.ctaBtn}
-          </a>
+          </button>
         </div>
 
       </div>

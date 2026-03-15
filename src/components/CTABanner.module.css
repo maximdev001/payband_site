@@ -97,6 +97,9 @@
   background: linear-gradient(90deg, #612882 0%, #1ED091 100%);
   box-shadow: 0 10px 28px rgba(97, 40, 130, 0.25);
   transition: transform 0.2s ease, opacity 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .btn:hover {

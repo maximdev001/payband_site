@@ -1,10 +1,17 @@
 import { useLang } from '../i18n/LangContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './Footer.module.css';
 import paybandLogo from '../assets/images/paybandlogo.svg';
 
 export default function Footer() {
   const { t } = useLang();
   const f = t.footer;
+  const navigate = useNavigate();
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    navigate('/#contact');
+  };
 
   return (
     <footer className={styles.footer}>
@@ -24,7 +31,7 @@ export default function Footer() {
             <ul className={styles.linkList}>
               <li><a href="mailto:Info@paybandsolutions.com" className={styles.link}>Info@paybandsolutions.com</a></li>
               <li><a href="tel:01080801186" className={styles.link}>0 10 80 80 11 86</a></li>
-              <li><a href="#contact" className={styles.link}>Fill the form</a></li>
+              <li><a href="#contact" className={styles.link} onClick={handleContactClick}>Fill the form</a></li>
             </ul>
           </div>
 

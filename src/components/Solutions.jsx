@@ -1,5 +1,5 @@
 import { useLang } from '../i18n/LangContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Solutions.module.css';
 
 import EduImg from '../assets/images/Edu.png';
@@ -35,6 +35,12 @@ const CUSTOMIZE_INDEX = 5;
 export default function Solutions() {
   const { t } = useLang();
   const s = t.solutions;
+  const navigate = useNavigate();
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    navigate('/#contact');
+  };
 
   return (
     <section className={styles.section} id="solutions">
@@ -111,7 +117,7 @@ export default function Solutions() {
                         <div className={styles.backTop}>
                           <span className={styles.backLabel}>{item.name}</span>
                         </div>
-                        <a href="#contact" className={styles.contactUsLink}>
+                        <a href="#contact" className={styles.contactUsLink} onClick={handleContactClick}>
                           {s.contactUs}
                         </a>
                         <div className={styles.backFooter}>

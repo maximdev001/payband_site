@@ -1,14 +1,21 @@
 import { useLang } from '../i18n/LangContext';
 import styles from './Hero.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const { t } = useLang();
   const h = t.hero;
+  const navigate = useNavigate();
+
+  const handleCTAClick = () => {
+    navigate('/#contact');
+  };
 
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.glow} />
       <div className={styles.glowTeal} />
+      <div className={styles.centralGlow} />
 
       <div className={`container ${styles.content}`}>
         <div className={styles.text}>
@@ -18,7 +25,7 @@ export default function Hero() {
             <span className={styles.tealText}>{h.heading2}</span>
           </h1>
           <p className={styles.subheading}>{h.sub}</p>
-          <a href="#solutions" className={styles.ctaBtn}>
+          <button onClick={handleCTAClick} className={styles.ctaBtn}>
             {h.cta}
             <span className={styles.ctaArrow}>
               <svg width="30" height="30" viewBox="0 0 22 22" fill="none">
@@ -26,7 +33,7 @@ export default function Hero() {
                 <path d="M8 11h6M11 8l3 3-3 3" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
-          </a>
+          </button>
         </div>
 
         {/* Decorative card visual */}
